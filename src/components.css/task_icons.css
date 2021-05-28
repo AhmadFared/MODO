@@ -1,0 +1,50 @@
+.remove-task-icon {
+  color: red;
+  cursor: pointer;
+}
+.remove-task-icon:hover{
+  transform: scale(1.069);
+}
+
+.notes-icon{
+  color: grey;
+  cursor: pointer;
+}
+
+.notes-icon:hover {  
+  color: #000;
+  transform: scale(1.069);
+  transition: ease-out;
+} 
+
+.add-notes-icon{
+  color: grey;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.add-notes-icon:hover {
+  /* content: "add notes"; */
+  color: #000;
+  transform: scale(1.069);
+  transition: ease-out;
+}
+
+
+.mark-finished-icon{
+  color: grey;
+  font-size: 27px;
+  cursor: pointer;
+} 
+
+.mark-finished-icon:hover {
+  color: #000 ;
+  transition: ease-out;
+  transform: scale(1.069);
+}
+
+.mark-finished-icon-active {
+  color: green;
+  font-size: 28px;
+  cursor: pointer;
+}

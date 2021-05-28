@@ -1,0 +1,36 @@
+.tasks{
+  width: 500px;
+  margin-top: 20px;
+  float: left; 
+  margin-left: 27px;
+}
+
+.task {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  /* cursor: pointer; */
+
+}
+
+.task.finished {
+  border-left: 8px solid green;
+  text-decoration: line-through;
+}
+
+.task h3 {
+  display: flex;
+  justify-content: space-between;
+}
+.task p {
+  display: flex;
+  justify-content: space-between;
+}
+.task_adding{
+  border :1
+}
+
+.add-task{
+  width: 500px;
+  float: right;
+}

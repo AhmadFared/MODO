@@ -1,0 +1,8 @@
+.remove-note-icon {
+  color: red;
+  cursor: pointer;
+}
+
+.remove-note-icon:hover {
+  transform: scale(1.069);
+}
