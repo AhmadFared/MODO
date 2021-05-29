@@ -1,44 +1,59 @@
-.remove-task-icon {
+/* Task Icons */
+.remove-icon {
   color: red;
   cursor: pointer;
 }
-.remove-task-icon:hover{
+.remove-icon:hover {
   transform: scale(1.069);
 }
 
-.notes-icon{
+.notes-icon {
   color: grey;
   cursor: pointer;
 }
 
-.notes-icon:hover {  
+.notes-icon:hover {
   color: #000;
   transform: scale(1.069);
   transition: ease-out;
-} 
+}
 
-.add-notes-icon{
+.notes-icon-active {
+  color: green;
+  cursor: pointer;
+  font-size: 28px;
+}
+.notes-icon-not-empty {
+  color: #000;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.add-notes-icon {
   color: grey;
   font-size: 27px;
   cursor: pointer;
 }
 
 .add-notes-icon:hover {
-  /* content: "add notes"; */
   color: #000;
   transform: scale(1.069);
   transition: ease-out;
 }
+.add-notes-icon-active {
+  color: green;
+  cursor: pointer;
+  font-size: 28px;
+}
 
-
-.mark-finished-icon{
+.mark-finished-icon {
   color: grey;
   font-size: 27px;
   cursor: pointer;
-} 
+}
 
 .mark-finished-icon:hover {
-  color: #000 ;
+  color: #000;
   transition: ease-out;
   transform: scale(1.069);
 }

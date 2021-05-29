@@ -1,200 +1,90 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import Header from './components/Header'
-import AddTask from './components/AddTask';
-import Tasks from './components/Tasks';
+import React from "react";
+import { useState, useEffect } from "react";
+import Header from "./components/Header/Header";
+import AddTask from "./components/Tasks/AddTask";
+import Tasks from "./components/Tasks/Tasks";
 
+import {
+  fetchTasks,
+  deleteTheTask,
+  toggleTheFinished,
+  showTheAddNote,
+  toggleTheNote,
+  addTheTask,
+} from "./components/Tasks/TasksManupilation";
+
+import {
+  addTheNote,
+  deleteTheNote,
+  toggleTheFinishedNote,
+} from "./components/Notes/NotesManipulation";
+
+import "./App.css";
 
 function App() {
-
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
     const getTasks = async () => {
-      const serverTasks = await fetchTasks()
-      setTasks(serverTasks)
-    }
+      const serverTasks = await fetchTasks();
+      setTasks(serverTasks);
+    };
 
-    getTasks()
-  }, [])
-
-  // Fetch Tasks
-  const fetchTasks = async () => {
-    const result = await fetch('http://localhost:4000/tasks')
-    const data = await result.json()
-
-    return data
-  }
-  // Fetch Task
-  const fetchTask = async (id) => {
-    const result = await fetch(`http://localhost:4000/tasks/${id}`)
-    const data = await result.json()
-  
-    return data
-  }
+    getTasks();
+  }, []);
 
   // Delete Task
-  const deleteTask = async (id) =>  {
-    await fetch(`http://localhost:4000/tasks/${id}`, {
-      method: 'DELETE',
-    })
-
-    setTasks(tasks.filter((task) => task.id !== id))
-  }
+  const deleteTask = (id) => deleteTheTask(id, tasks, setTasks);
 
   // Toggle Finished
-  const toggleFinished= async (id) => {
-    const taskToToggle = await fetchTask(id)
-    const updTask =  { ...taskToToggle,
-      finished: !taskToToggle.finished}
-    
-    const result = await fetch(`http://localhost:4000/tasks/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(updTask),
-    })
-
-    const data = await result.json()
-
-    setTasks(tasks.map((task) =>
-       task.id===id ? 
-        { ...task, finished: data.finished } : 
-          task))
-  }
+  const toggleFinished = (id) => toggleTheFinished(id, tasks, setTasks);
 
   // Show Add Notes
-  const showAddNote = (id) => {
-    setTasks(tasks.map((task) => task.id===id
-    ? {...task, showAddNotes: !task.showAddNotes } : task))
-  }
+  const showAddNote = (id) => showTheAddNote(id, tasks, setTasks);
 
   // Toggle Note
-  const toggleNote = (id) => {
-    setTasks(tasks.map((task) => task.id===id
-    ? {...task, showNotes: !task.showNotes } : task))
-  }
+  const toggleNote = (id) => toggleTheNote(id, tasks, setTasks);
 
   // Add a Task
-  const addTask = async (task) =>{
+  const addTask = (task) => addTheTask(task, tasks, setTasks);
 
-    const result = await fetch ('http://localhost:4000/tasks', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(task)
-    })
+  // Delete Note
+  const deleteNote = (noteID, taskID) =>
+    deleteTheNote(noteID, taskID, tasks, setTasks);
 
-    const data = await result.json() 
-    setTasks([...tasks, data])
-  }
+  // Toggle Finished Note
+  const toggleFinishedNote = (noteID, taskID) =>
+    toggleTheFinishedNote(noteID, taskID, tasks, setTasks);
 
   // Add a Note
-  const addNote = async (note,id) => {
-
-    // Note ID
-    const noteID = (Math.floor(Math.random() * 100) + Date.now() )
-    const newNote = {noteID, ...note}
-
-    // toggle and update task
-    const taskToToggle = await fetchTask(id) 
-    const updTask = { ...taskToToggle, notes: [...taskToToggle.notes, newNote]}
-
-    const result = await fetch(`http://localhost:4000/tasks/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(updTask),
-    })
-
-    const data = await result.json()
-
-    setTasks((tasks.map( (task) => 
-      task.id === id 
-        ? {...task, notes: data.notes } 
-        : {...task} ) ))
-  }
-
-
-  // Delete a note
-  const deleteNote = async (noteID, taskID) => {
-    // task to toggle
-    const taskToToggle = await fetchTask(taskID)
-
-    const updTask = {...taskToToggle, notes: [...taskToToggle.notes.filter((note) => note.noteID !== noteID)]}
-    
-    const result = await fetch (`http://localhost:4000/tasks/${taskID}`, {
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(updTask),
-    })
-
-    const data = await result.json()
-
-    setTasks(tasks.map((task) => 
-      task.id === taskID 
-        ? {...task, notes: data.notes} 
-        : {...task}  ))
-  }
-
-
-  // Toggle finished note
-  const toggleFinishedNote = async (noteID, taskID) => {
-    
-    // task To Toggle
-    const taskToToggle = await fetchTask(taskID)
-    
-    const updTask = {...taskToToggle, notes: taskToToggle.notes.map((note) => note.noteID === noteID ? {...note, noteFinished : !note.noteFinished} : {...note})}
-
-    const result = await fetch (`http://localhost:4000/tasks/${taskID}`,{
-      method: 'PUT',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify(updTask),
-    })
-
-    const data = await result.json()
-    
-    setTasks(tasks.map((task) => 
-      task.id === taskID 
-        ? {...task, notes: data.notes} 
-        : {...task}  ))
-  }
+  const addNote = (note, taskID) => addTheNote(note, taskID, tasks, setTasks);
 
   return (
     <div className="container">
-      
-        <div className="header">
+      <div>
         <Header />
+      </div>
+      <hr />
+      <div className="content-container">
+        <div>
+          <AddTask onAdd={addTask} />
         </div>
-        <hr />
-      <div className="container-2">
-        <div className="add-task">
 
-        <AddTask onAdd={addTask}/>
-        </div>
-
-        <div className="tasks">
-        {tasks.length > 0 ? (
-          <Tasks 
-            tasks={tasks} 
-            onDelete={deleteTask}
-            onToggle={toggleFinished}
-            onShowNotes={toggleNote}
-            onShowAddNotes={showAddNote}
-            onAddNote={addNote}
-            onDeleteNote={deleteNote}
-            onToggleNote={toggleFinishedNote}
-          />) : (
-            'No Tasks To Show'
-          ) 
-        }
+        <div className="tasks-container">
+          {tasks.length > 0 ? (
+            <Tasks
+              tasks={tasks}
+              onDelete={deleteTask}
+              onToggle={toggleFinished}
+              onShowNotes={toggleNote}
+              onShowAddNotes={showAddNote}
+              onAddNote={addNote}
+              onDeleteNote={deleteNote}
+              onToggleNote={toggleFinishedNote}
+            />
+          ) : (
+            "No Tasks To Show"
+          )}
         </div>
       </div>
     </div>

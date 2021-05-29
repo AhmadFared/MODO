@@ -1,0 +1,29 @@
+/* notes */
+.notes {
+  width: 396px;
+  margin-top: 3px;
+  margin-left: 27px;
+  font-size: 14px;
+}
+
+.note {
+  background: #f4f4f4;
+  margin: 4px;
+  padding: 8px 16px;
+}
+
+.note.finished {
+  text-decoration: line-through;
+  border-left: 5px solid green;
+}
+
+.note p {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Add Note */
+.add-note {
+  width: 400px;
+  justify-content: space-around;
+}

@@ -1,11 +1,20 @@
-import Task from'./Task';
+import Task from "./Task";
 
-const Tasks = ({ tasks, onDelete, onToggle, onShowNotes, onShowAddNotes, onAddNote ,notes, onDeleteNote, onToggleNote })=>{
-  
+const Tasks = ({
+  tasks,
+  onDelete,
+  onToggle,
+  onShowNotes,
+  onShowAddNotes,
+  onAddNote,
+  notes,
+  onDeleteNote,
+  onToggleNote,
+}) => {
   return (
     <>
       {tasks.map((task) => (
-        <Task 
+        <Task
           task={task}
           onDelete={onDelete}
           onToggle={onToggle}
@@ -18,6 +27,6 @@ const Tasks = ({ tasks, onDelete, onToggle, onShowNotes, onShowAddNotes, onAddNo
         />
       ))}
     </>
-  )
-}
-export default Tasks
+  );
+};
+export default Tasks;

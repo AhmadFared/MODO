@@ -1,0 +1,29 @@
+/* Note icons */
+
+.remove-note-icon {
+  color: red;
+  cursor: pointer;
+}
+
+.remove-note-icon:hover {
+  transition: ease-out;
+  transform: scale(1.069);
+}
+
+.mark-note-finished-icon {
+  color: grey;
+  font-size: 21px;
+}
+
+.mark-note-finished-icon:hover {
+  color: #000;
+  transition: ease-out;
+  transform: scale(1.069);
+  cursor: pointer;
+}
+
+.mark-note-finished-icon-active {
+  color: green;
+  cursor: pointer;
+  font-size: 22px;
+}

@@ -1,4 +1,5 @@
-.btn {
+/* btn */
+.button {
   display: inline-block;
   background: #000;
   color: #fff;
@@ -9,23 +10,22 @@
   cursor: pointer;
   text-decoration: none;
   font-size: 20px;
-  
-} 
+}
 
-.btn:focus {
+.button:focus {
   outline: none;
 }
 
-.btn:active {
+.button:active {
   transform: scale(0.8);
 }
 
-.btn:hover {
+.button:hover {
   color: #f4f4f4;
   transform: scale(0.96);
 }
 
-.btn-block {
+.button-block {
   display: block;
   width: 100%;
 }
