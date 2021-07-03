@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./task.css";
 import "../btn.css";
 import "../form.css";
-
 const AddTask = ({ onAdd }) => {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
@@ -30,9 +29,9 @@ const AddTask = ({ onAdd }) => {
   };
 
   return (
-    <form className="add-form add-task" onSubmit={onSubmit}>
-      <div className="form-control">
-        <label>Task</label>
+    <form className="add-form add-task col" onSubmit={onSubmit}>
+      <div className="form-control row">
+        <label className="add-form-header">Task</label>
         <input
           type="text"
           placeholder="Add Task"
@@ -42,8 +41,8 @@ const AddTask = ({ onAdd }) => {
         />
       </div>
 
-      <div className="form-control">
-        <label>Date</label>
+      <div className="form-control row">
+        <label className="add-form-header">Date</label>
         <input
           type="text"
           placeholder="Add Date"
@@ -53,7 +52,11 @@ const AddTask = ({ onAdd }) => {
         />
       </div>
 
-      <input type="submit" value="save Task" className="button button-block" />
+      <input
+        type="submit"
+        value="save Task"
+        className="button button-block row"
+      />
     </form>
   );
 };

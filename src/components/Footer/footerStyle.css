@@ -1,0 +1,41 @@
+.footer {
+  margin: 70px 0 0 0;
+}
+/* Social Media */
+.a {
+}
+.social {
+  margin: 8px 0 0 0;
+  padding: 8px 0 8px 0;
+  justify-content: space-evenly;
+}
+.github {
+  text-align: center;
+  color: #7dbbe6;
+}
+.twitter {
+  text-align: center;
+  color: #1da1f2;
+}
+.telegram {
+  text-align: center;
+  color: #0088cc;
+}
+.linkedin {
+  text-align: center;
+  color: #0077b5;
+}
+.social-media-platform-name {
+  font-size: 18px;
+  color: black;
+  transition-timing-function: ease-in-out;
+  transition: font-size 1s;
+}
+.social-media-platform-name:hover {
+  font-size: 19px;
+}
+.gmail {
+  margin: 8px 0 12px 0;
+  color: black;
+  text-align: center;
+}

@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import "./notes.css";
-import "../form.css";
-import "../btn.css";
+// import "./notes.css";
+// import "../form.css";
+// import "../btn.css";
 
 const AddNote = ({ id, onAddNote }) => {
   const [noteText, setNoteText] = useState("");

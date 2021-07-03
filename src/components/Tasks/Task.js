@@ -50,10 +50,7 @@ const Task = ({
 
       <h3 className="icons">
         <BsCardChecklist
-          className={
-            theClass()
-            // task.notes.length > 0 ? "notes-icon-not-empty" : "notes-icon"
-          }
+          className={theClass()}
           onClick={() => onShowNotes(task.id)}
         />
         <TiClipboard

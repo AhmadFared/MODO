@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import AddTask from "./components/Tasks/AddTask";
 import Tasks from "./components/Tasks/Tasks";
+import Footer from "./components/Footer/Footer";
 
 import {
   fetchTasks,
@@ -60,17 +61,17 @@ function App() {
   const addNote = (note, taskID) => addTheNote(note, taskID, tasks, setTasks);
 
   return (
-    <div className="container">
+    <div className="container col">
       <div>
-        <Header />
+        <Header className="" title="Modo" />
       </div>
       <hr />
-      <div className="content-container">
-        <div>
+      <div className="content-container row">
+        <div className="col">
           <AddTask onAdd={addTask} />
         </div>
 
-        <div className="tasks-container">
+        <div className="tasks-container col">
           {tasks.length > 0 ? (
             <Tasks
               tasks={tasks}
@@ -87,6 +88,7 @@ function App() {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

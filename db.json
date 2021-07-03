@@ -1,3 +1,43 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "title": "Watch 'Dancer in the Dark'",
+      "date": "Sat 15th may 08:00 PM",
+      "finished": true,
+      "notes": [],
+      "showNotes": false,
+      "showAddNotes": false,
+      "id": 1
+    },
+    {
+      "title": "Football Match",
+      "date": "Sun 16th May 21:00",
+      "finished": false,
+      "notes": [
+        {
+          "noteID": 1624524666658,
+          "noteText": "try the new custom",
+          "noteFinished": false
+        }
+      ],
+      "showNotes": false,
+      "showAddNotes": false,
+      "id": 2
+    },
+    {
+      "title": "Start \"Coffeed21\"",
+      "date": "Mon 17th May 10:00 AM",
+      "finished": false,
+      "notes": [
+        {
+          "noteID": 1623832784856,
+          "noteText": "start the Static Design",
+          "noteFinished": false
+        }
+      ],
+      "showNotes": false,
+      "showAddNotes": false,
+      "id": 3
+    }
+  ]
 }
