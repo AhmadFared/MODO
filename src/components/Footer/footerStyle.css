@@ -26,13 +26,13 @@
   color: #0077b5;
 }
 .social-media-platform-name {
-  font-size: 18px;
+  font-size: 16px;
   color: black;
   transition-timing-function: ease-in-out;
   transition: font-size 1s;
 }
 .social-media-platform-name:hover {
-  font-size: 19px;
+  transform: scale(1.1);
 }
 .gmail {
   margin: 8px 0 12px 0;
